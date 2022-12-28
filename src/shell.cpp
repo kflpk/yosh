@@ -51,7 +51,7 @@ void Shell::init() {
         std::filesystem::create_directory(cache/"yosh");
     }
 
-    prompt.set_prompt("[kacper@home]$: ");
+    prompt.set_prompt("[user@hostname]$: ");
 }
 
 int Shell::loop() {
@@ -73,8 +73,18 @@ unsigned int Shell::execute_command(std::string command) {
 }
 
 unsigned int Shell::execute(std::vector<std::string> args) {
+    if(args.empty())
+        return 0;
+
+    std::cout << args.size();
     if(args[0] == "assign") {
-        assign_var(args[1], args[2]);
+        if(args.size() > 2)
+            assign_var(args[1], args[2]);
+        else {
+            std::cout << "Bad usage of \"assign\"\n" <<
+            "Usage:\n" <<
+            "assign <name> <value>\n" << std::flush;
+        }
     } else if(args[0] == "export") {
         export_var(args[1], args[2]);
     } else if(args[0] == "help") {
@@ -102,9 +112,12 @@ void Shell::exit() {
 
 std::string Shell::getvar(std::string var) {
     // Search local shell variables for var
+    if(variables.count(var))
+        return variables[var];
     // If not found, search in env variables
+    else
+        return getenv(var.c_str());
     // If not found, return empty string
-    return std::string();
 }
 
 void Shell::assign_var(std::string name, std::string value) {

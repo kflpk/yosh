@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <regex>
 #include "prompt.hpp"
 #include "shell.hpp"
 
