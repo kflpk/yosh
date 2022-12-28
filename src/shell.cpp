@@ -51,6 +51,7 @@ void Shell::init() {
         std::filesystem::create_directory(cache/"yosh");
     }
 
+    //TODO: Add setting prompt from variable
     prompt.set_prompt("[user@hostname]$: ");
 }
 
@@ -76,7 +77,6 @@ unsigned int Shell::execute(std::vector<std::string> args) {
     if(args.empty())
         return 0;
 
-    std::cout << args.size();
     if(args[0] == "assign") {
         if(args.size() > 2)
             assign_var(args[1], args[2]);

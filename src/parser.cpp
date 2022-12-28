@@ -22,6 +22,7 @@ std::vector<std::string> Parser::parse(std::string command) {
         tokens.push_back("export");
         tokens.push_back(matches[1]);
         tokens.push_back(matches[2]);
+        //TODO: Add double quotes support for assign and export
     } else {
         std::string buffer;
         std::regex token_regex(R"(\w+|\".+\")");
