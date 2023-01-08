@@ -53,7 +53,7 @@ void Shell::init() {
     }
 
     //TODO: Add setting prompt from variable
-    prompt.set_prompt("[user@hostname]$: ");
+    prompt.set_prompt("%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
 }
 
 int Shell::loop() {
@@ -71,7 +71,8 @@ unsigned int Shell::execute_command(std::string command) {
         return 0;
 
     std::vector<std::string> args = parser.parse(command);
-    this->execute(args);
+    int return_value = this->execute(args);
+    return return_value;
 }
 
 unsigned int Shell::execute(std::vector<std::string> args) {
@@ -80,6 +81,7 @@ unsigned int Shell::execute(std::vector<std::string> args) {
         return 0;
 
     // Step 2: Evaluate builtins if applicable
+    // TODO: Move built-ins to dedicated function/struct
     if(args[0] == "assign") {
         if(args.size() > 2)
             assign_var(args[1], args[2]);
@@ -123,7 +125,7 @@ unsigned int Shell::execute(std::vector<std::string> args) {
         std::cout << std::strerror(errno) << std::endl;
         exit();
     }
-
+    //TODO: Return the programs exit value
     return 0;
 }
 

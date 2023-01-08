@@ -3,6 +3,7 @@
 #include <regex>
 #include "prompt.hpp"
 #include "shell.hpp"
+#include "utils.hpp"
 
 int main() {
 	Shell shell;

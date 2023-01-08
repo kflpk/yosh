@@ -3,6 +3,7 @@
 #include <algorithm>
 
 std::vector<std::string> Parser::parse(std::string command) {
+    //TODO: Parse to dedicated command structure instead of string vector
     std::vector<std::string> tokens;
 
     std::regex assign_rule(R"(\w+=\w+)");
