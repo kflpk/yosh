@@ -23,6 +23,7 @@ private:
     void exit();
     void cd(std::string path);
     void help();
+    void pwd();
     void export_var(std::string name, std::string value); 
     void assign_var(std::string name, std::string value);
     void display_vars(void);

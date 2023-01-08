@@ -39,4 +39,28 @@ std::vector<std::string> Parser::parse(std::string command) {
         }
     }
     return tokens;
+} 
+// FIX: fix bad handling of slash characters
+
+
+char** Parser::parse_to_cstrings(std::vector<std::string> args) {
+    int args_count = args.size();
+    // size_t strings_size = 0;
+    // size_t total_size;
+
+    // args_count = args.size() + 1;
+    // // One more place for NULL terminator
+
+    // for(auto str : args) {
+    //     strings_size += str.size();
+    // }
+
+    // FIX: EXTREMELY BAD IMPLEMENTATION, FIX THIS LATES PLS
+    char** argv = (char**)malloc((args_count + 1) * sizeof(char*));
+    argv[args_count] = NULL;
+
+    for(int i = 0; i < args_count; i++) {
+        argv[i] = strdup(args[i].c_str());
+    }
+    return argv;
 }

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <unistd.h>
+#include <sys/wait.h>
 
 void Shell::welcome() {
     std::cout << "Welcome to yosh (YOshua's SHell)\n" << 
@@ -74,9 +75,11 @@ unsigned int Shell::execute_command(std::string command) {
 }
 
 unsigned int Shell::execute(std::vector<std::string> args) {
+    // Step 1: Check whether there are any characters in args vector
     if(args.empty())
         return 0;
 
+    // Step 2: Evaluate builtins if applicable
     if(args[0] == "assign") {
         if(args.size() > 2)
             assign_var(args[1], args[2]);
@@ -93,6 +96,27 @@ unsigned int Shell::execute(std::vector<std::string> args) {
         welcome();
     } else if(args[0] == "vars") {
         display_vars();
+    } else if(args[0] == "exit") {
+        exit();
+    } else if(args[0] == "pwd") {
+        pwd();
+    } else if(args[0] == "cd") {
+        cd(args[1]);
+    }
+
+    //Step 3: If command is not a builtin, start a new proccess
+    pid_t pid;
+    if( (pid = fork()) > 0) { // Parent on succesful fork
+        int status;
+        std::cout << "I'm a parent process" << std::endl;
+        waitpid(pid, &status, 0);
+        std::cout << "Child is dead" << std::endl;
+    } else if(pid == -1) { // Parent on failed fork
+        std::cout << "Parental failure detected" << std::endl;
+    } else if(pid ==  0) { // Child
+        std::cout << "I'm a child process" << std::endl;
+        char** argv = parser.parse_to_cstrings(args);
+        execvp(argv[0], argv);
     }
 
     return 0;
@@ -135,5 +159,10 @@ void Shell::display_vars() {
 }
 
 void Shell::cd(std::string dir) {
-    return;
+    chdir(dir.c_str());
+    // NOTE: Function works properly, but overall cd functionality doesn't work bc of the parser
+}
+
+void Shell::pwd() {
+    std::cout << get_current_dir_name() << std::endl;
 }
