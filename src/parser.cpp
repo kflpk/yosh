@@ -62,5 +62,6 @@ char** Parser::parse_to_cstrings(std::vector<std::string> args) {
     for(int i = 0; i < args_count; i++) {
         argv[i] = strdup(args[i].c_str());
     }
+
     return argv;
 }

@@ -1,6 +1,7 @@
 #include "shell.hpp"
 #include <fstream>
 #include <cstdlib>
+#include <cerrno>
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -46,7 +47,6 @@ void Shell::init() {
         }
     }
 
-    // TODO: Create a history file in $XDG_CACHE_HOME/yosh/
     std::filesystem::path cache(std::string(std::getenv("XDG_CACHE_HOME")));
     if(!std::filesystem::exists(cache/"yosh")) {
         std::filesystem::create_directory(cache/"yosh");
@@ -110,13 +110,18 @@ unsigned int Shell::execute(std::vector<std::string> args) {
         int status;
         std::cout << "I'm a parent process" << std::endl;
         waitpid(pid, &status, 0);
-        std::cout << "Child is dead" << std::endl;
+        std::cout << "The child has been reaped!" << std::endl;
     } else if(pid == -1) { // Parent on failed fork
-        std::cout << "Parental failure detected" << std::endl;
+        std::cout << "Couldn't fork a child process\n" << std::endl;
+        std::cout << std::strerror(errno) << std::endl;
     } else if(pid ==  0) { // Child
+        int exec_return;
         std::cout << "I'm a child process" << std::endl;
         char** argv = parser.parse_to_cstrings(args);
-        execvp(argv[0], argv);
+        // NOTE: argv is not freed after returning, because the child process dies anyway
+        exec_return = execvp(argv[0], argv);
+        std::cout << std::strerror(errno) << std::endl;
+        exit();
     }
 
     return 0;
