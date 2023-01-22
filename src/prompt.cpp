@@ -28,7 +28,6 @@ void Prompt::display() {
         while( (index = output_str.find(kvp.first)) != std::string::npos) {
             output_str.replace(index, kvp.first.size(), kvp.second);
         }
-        // std::replace(output_str.begin(), output_str.end(), kvp.first, kvp.second);
     }
     
     std::cout << output_str << std::flush;

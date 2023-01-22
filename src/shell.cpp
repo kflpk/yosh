@@ -53,13 +53,18 @@ void Shell::init() {
     }
 
     //TODO: Add setting prompt from variable
-    prompt.set_prompt("%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
+    // prompt.set_prompt("%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
+    assign_var("PROMPT", "%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
+    
 }
 
 int Shell::loop() {
     while(true) {
         std::string command;
+        
+        prompt.set_prompt(getvar("PROMPT"));
         prompt.display();
+
         std::getline(std::cin,  command);
         this->history.push_back(command);
         execute_command(command);
@@ -105,7 +110,9 @@ unsigned int Shell::execute(std::vector<std::string> args) {
     } else if(args[0] == "cd") {
         cd(args[1]);
     }
+    // NOTE: Maybe i could make some abstract handler for builtins and other stuff
 
+    // FIX: don't fork when using a builtin
     //Step 3: If command is not a builtin, start a new proccess
     pid_t pid;
     if( (pid = fork()) > 0) { // Parent on succesful fork
@@ -173,3 +180,5 @@ void Shell::cd(std::string dir) {
 void Shell::pwd() {
     std::cout << get_current_dir_name() << std::endl;
 }
+
+// TODO: Get rid of redundant uses of "this"
