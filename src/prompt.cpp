@@ -15,7 +15,7 @@ void Prompt::display() {
 
     try {
         char* hostname = (char*)malloc(1024); // FIX: MEMORY LEAK
-        gethostname(hostname, 1024);
+        gethostname(hostname, 1024); // NOTE: This size doesn't change during runtime
         output_str.replace(output_str.find("%u"), 2, getenv("USER"));
         output_str.replace(output_str.find("%h"), 2, hostname);
         output_str.replace(output_str.find("%w"), 2, get_current_dir_name()); // NOTE: possible memory leak

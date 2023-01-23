@@ -69,6 +69,7 @@ int Shell::loop() {
         this->history.push_back(command);
         execute_command(command);
     }
+    // FIX: Bug when using Ctrl+D
 }
 
 unsigned int Shell::execute_command(std::string command) {
@@ -105,7 +106,7 @@ unsigned int Shell::execute(std::vector<std::string> args) {
         display_vars();
     } else if(args[0] == "exit") {
         exit();
-    } else if(args[0] == "pwd") {
+    } else if(args[0] == "pwd") { // FIX: pwd giving output two times
         pwd();
     } else if(args[0] == "cd") {
         cd(args[1]);
@@ -117,15 +118,11 @@ unsigned int Shell::execute(std::vector<std::string> args) {
     pid_t pid;
     if( (pid = fork()) > 0) { // Parent on succesful fork
         int status;
-        std::cout << "I'm a parent process" << std::endl;
         waitpid(pid, &status, 0);
-        std::cout << "The child has been reaped!" << std::endl;
     } else if(pid == -1) { // Parent on failed fork
-        std::cout << "Couldn't fork a child process\n" << std::endl;
         std::cout << std::strerror(errno) << std::endl;
     } else if(pid ==  0) { // Child
         int exec_return;
-        std::cout << "I'm a child process" << std::endl;
         char** argv = parser.parse_to_cstrings(args);
         // NOTE: argv is not freed after returning, because the child process dies anyway
         exec_return = execvp(argv[0], argv);
@@ -173,7 +170,10 @@ void Shell::display_vars() {
 }
 
 void Shell::cd(std::string dir) {
-    chdir(dir.c_str());
+    if(!dir.empty())
+        chdir(dir.c_str());
+    else
+        chdir(getvar("HOME").c_str());
     // NOTE: Function works properly, but overall cd functionality doesn't work bc of the parser
 }
 

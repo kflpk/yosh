@@ -8,14 +8,19 @@ std::vector<std::string> Parser::parse(std::string command) {
 
     std::regex assign_rule(R"(\w+=\w+)");
     std::regex export_rule(R"(export \w+=\w+)");
+    // std::regex assign_rule(R"(^\s*([A-Za-z_][A-Za-z0-9_]*)=("[^"]*"|[a-zA-Z0-9_\.\-/]+)\s*$)");
 
     if(std::regex_match(command, assign_rule)) { // Match for assignment
-        std::regex assign_group(R"((\w+)=(\w+))");
+        // std::regex assign_group(R"((\w+)=(\w+))");
+        std::regex assign_group(R"(([a-zA-Z_][[:alnum:]_]*)=(\S+))");
         std::smatch matches;
         std::regex_search(command, matches, assign_group);
         tokens.push_back("assign");
         tokens.push_back(matches[1]);
         tokens.push_back(matches[2]);
+        // ^([[:alpha:]_][[:alnum:]_]+)=("(.*)"|[a-zA-Z-0-9_]+)\s*$
+        // ([a-zA-Z_][[:alnum:]_]*)=(\S+)
+        // ([a-zA-Z_][[:alnum:]_]*)="(.+)"
     } else if(std::regex_match(command, export_rule)) { // Match for export
         std::regex assign_group(R"(export (\w+)=(\w+))");
         std::smatch matches;
@@ -26,7 +31,7 @@ std::vector<std::string> Parser::parse(std::string command) {
         //TODO: Add double quotes support for assign and export
     } else {
         std::string buffer;
-        std::regex token_regex(R"(\w+|\".+\")");
+        std::regex token_regex(R"([\w.\-/]+|\"[^"]*")");
         std::sregex_iterator iter(command.begin(), command.end(), token_regex);
         std::sregex_iterator end;
 
