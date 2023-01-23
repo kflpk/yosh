@@ -46,8 +46,6 @@ std::vector<std::string> Parser::parse(std::string command) {
     }
     return tokens;
 } 
-// FIX: fix bad handling of slash characters
-
 
 char** Parser::parse_to_cstrings(std::vector<std::string> args) {
     int args_count = args.size();

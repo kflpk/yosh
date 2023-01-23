@@ -12,6 +12,7 @@ public:
     std::string get_prompt(void);
 private:
     std::string prompt;
+    char hostname[256];
     std::map<std::string, std::string> colors = {
         {"%{default}", "\033[0m"},
         {"%{red}",     "\033[31m"},
