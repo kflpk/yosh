@@ -12,12 +12,13 @@ class Shell {
 public:
     void welcome();
     unsigned int execute_command(std::string command);
-    unsigned int execute(std::vector<std::string> args);
     int loop();
     void init();
 private:
     Prompt prompt;
     Parser parser;
+
+    unsigned int execute(Command& command);
 
     // BUILTINS
     void exit();
@@ -27,6 +28,7 @@ private:
     void export_var(std::string name, std::string value); 
     void assign_var(std::string name, std::string value);
     void display_vars(void);
+    
 
     std::vector<std::string> history;
     std::map<std::string, std::string> variables;

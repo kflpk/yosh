@@ -9,7 +9,6 @@ void Prompt::display() {
     // FIX: Move hostname variable to Shell class
 
     // TODO: previous exit code
-    // TODO: colors
 
     try {
         gethostname(hostname, 256); 

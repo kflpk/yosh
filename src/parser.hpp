@@ -4,8 +4,24 @@
 #include <algorithm>
 #include <regex>
 
+enum class CommandType {
+    Builtin,
+    Execution,
+    Assignment,
+    Export,
+    _sentinel
+};
+
+struct Command {
+    CommandType type;
+    int argc;
+    std::vector<std::string> argv;
+    std::string VariableName;
+    std::string VariableValue;
+};
+
 class Parser {
 public:
-    std::vector<std::string> parse(std::string command);
+    Command parse(std::string command);
     char** parse_to_cstrings(std::vector<std::string> args);
 };

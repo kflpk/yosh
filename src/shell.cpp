@@ -52,9 +52,8 @@ void Shell::init() {
         std::filesystem::create_directory(cache/"yosh");
     }
 
-    //TODO: Add setting prompt from variable
-    // prompt.set_prompt("%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
-    assign_var("PROMPT", "%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
+    if(getvar("PROMPT").empty())
+        assign_var("PROMPT", "%{yellow}[%u@%h %{cyan}%w%{yellow}]$: %{default}");
     
 }
 
@@ -72,22 +71,38 @@ int Shell::loop() {
     // FIX: Bug when using Ctrl+D
 }
 
-unsigned int Shell::execute_command(std::string command) {
-    if(command.empty())
+unsigned int Shell::execute_command(std::string command_line) {
+    if(command_line.empty())
         return 0;
 
-    std::vector<std::string> args = parser.parse(command);
-    int return_value = this->execute(args);
+    Command command;
+    command = parser.parse(command_line);
+    int return_value = execute(command);
     return return_value;
 }
 
-unsigned int Shell::execute(std::vector<std::string> args) {
-    // Step 1: Check whether there are any characters in args vector
-    if(args.empty())
-        return 0;
+unsigned int Shell::execute(Command& command) {
+    std::vector<std::string> args = command.argv;
 
-    // Step 2: Evaluate builtins if applicable
+    switch(command.type) {
+        case CommandType::Builtin:
+            // TODO: Add builtin-handling routine
+        break;
+        case CommandType::Assignment:
+            assign_var(command.VariableName, command.VariableValue);
+            return 0;
+        break;
+        case CommandType::Export:
+            export_var(command.VariableName, command.VariableValue);
+            return 0;
+        break;
+    }
+
+    if(args.empty()) {
+        return 0;
+    }
     // TODO: Move built-ins to dedicated function/struct
+    // FIX: some builtins result in segfault when no arguments are passed
     if(args[0] == "assign") {
         if(args.size() > 2)
             assign_var(args[1], args[2]);
@@ -111,10 +126,9 @@ unsigned int Shell::execute(std::vector<std::string> args) {
     } else if(args[0] == "cd") {
         cd(args[1]);
     }
-    // NOTE: Maybe i could make some abstract handler for builtins and other stuff
+         // NOTE: Maybe i could make some abstract handler for builtins and other stuff
 
     // FIX: don't fork when using a builtin
-    //Step 3: If command is not a builtin, start a new proccess
     pid_t pid;
     if( (pid = fork()) > 0) { // Parent on succesful fork
         int status;
@@ -134,6 +148,7 @@ unsigned int Shell::execute(std::vector<std::string> args) {
 }
 
 void Shell::exit() {
+    // FIX: use $XDG_CACHE_HOME/yosh/history
     std::ofstream histfile("/home/kacper/.cache/yosh/history", std::ios::app);
     if(histfile.good()) {
         for(auto line : history) {
@@ -150,9 +165,13 @@ std::string Shell::getvar(std::string var) {
     if(variables.count(var))
         return variables[var];
     // If not found, search in env variables
-    else
-        return getenv(var.c_str());
-    // If not found, return empty string
+    else {
+        char* c_var = getenv(var.c_str());
+
+        // If not found, return empty string
+        if(c_var == NULL)
+            return std::string();
+    }
 }
 
 void Shell::assign_var(std::string name, std::string value) {
