@@ -65,7 +65,7 @@ int Shell::loop() {
         prompt.display();
 
         std::getline(std::cin,  command);
-        this->history.push_back(command);
+        history.push_back(command);
         execute_command(command);
     }
     // FIX: Bug when using Ctrl+D
@@ -86,7 +86,8 @@ unsigned int Shell::execute(Command& command) {
 
     switch(command.type) {
         case CommandType::Builtin:
-            // TODO: Add builtin-handling routine
+            handle_builtin(command);
+            return 0;
         break;
         case CommandType::Assignment:
             assign_var(command.VariableName, command.VariableValue);
@@ -96,41 +97,17 @@ unsigned int Shell::execute(Command& command) {
             export_var(command.VariableName, command.VariableValue);
             return 0;
         break;
+        case CommandType::Execution:
+        default:
+        break;
     }
 
     if(args.empty()) {
         return 0;
     }
-    // TODO: Move built-ins to dedicated function/struct
-    // FIX: some builtins result in segfault when no arguments are passed
-    if(args[0] == "assign") {
-        if(args.size() > 2)
-            assign_var(args[1], args[2]);
-        else {
-            std::cout << "Bad usage of \"assign\"\n" <<
-            "Usage:\n" <<
-            "assign <name> <value>\n" << std::flush;
-        }
-    } else if(args[0] == "export") {
-        export_var(args[1], args[2]);
-    } else if(args[0] == "help") {
-        help();
-    } else if(args[0] == "welcome") {
-        welcome();
-    } else if(args[0] == "vars") {
-        display_vars();
-    } else if(args[0] == "exit") {
-        exit();
-    } else if(args[0] == "pwd") { // FIX: pwd giving output two times
-        pwd();
-    } else if(args[0] == "cd") {
-        cd(args[1]);
-    }
-         // NOTE: Maybe i could make some abstract handler for builtins and other stuff
 
-    // FIX: don't fork when using a builtin
     pid_t pid;
-    if( (pid = fork()) > 0) { // Parent on succesful fork
+    if((pid = fork()) > 0) { // Parent on succesful fork
         int status;
         waitpid(pid, &status, 0);
     } else if(pid == -1) { // Parent on failed fork
@@ -200,4 +177,21 @@ void Shell::pwd() {
     std::cout << get_current_dir_name() << std::endl;
 }
 
-// TODO: Get rid of redundant uses of "this"
+void Shell::handle_builtin(Command command) {
+    std::vector<std::string> args = command.argv;
+    try {
+        if(args[0] == "help") {
+            help();
+        } else if(args[0] == "welcome") {
+            welcome();
+        } else if(args[0] == "vars") {
+            display_vars();
+        } else if(args[0] == "exit") {
+            exit();
+        } else if(args[0] == "cd") {
+            cd(args[1]);
+        }
+    } catch(std::exception ex) {
+        std::cout << "Error: invalid numer of arguments" << std::endl;
+    }
+}

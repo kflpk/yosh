@@ -2,6 +2,16 @@
 #include <iostream>
 #include <algorithm>
 
+Parser::Parser() {
+    builtin_list = {
+        "cd",
+        "vars",
+        "help",
+        "welcome",
+        "exit"
+    };
+}
+
 Command Parser::parse(std::string command_line) {
     Command command;
     std::vector<std::string> tokens;
@@ -57,6 +67,12 @@ Command Parser::parse(std::string command_line) {
             tokens.push_back(buffer);
         }
         command.argv = tokens;
+        
+
+        // Check if command is a builtin
+        if(std::find(builtin_list.begin(), builtin_list.end(), command.argv[0]) != builtin_list.end()) {
+            command.type = CommandType::Builtin;
+        }
     }
     return command;
 } 

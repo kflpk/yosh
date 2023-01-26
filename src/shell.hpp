@@ -28,6 +28,7 @@ private:
     void export_var(std::string name, std::string value); 
     void assign_var(std::string name, std::string value);
     void display_vars(void);
+    void handle_builtin(Command command);
     
 
     std::vector<std::string> history;
