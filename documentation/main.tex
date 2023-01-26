@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{polski}
+% \usepackage{lmodern}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[a4paper, margin={2.54cm, 1.54cm}]{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{enumitem}
+
+\titleformat{\section}
+{\LARGE \bfseries}
+{\thesection.}
+{0.5em}
+{}[\titlerule]
+
+\titleformat{\subsection}
+{\Large \bfseries}
+{\thesubsection.}
+{0.5em}
+{}[]
+
+% \renewcommand{\labelenumii}{\theenumi.\theenumii.}
+\setlist[enumerate]{label*=\arabic*.}
+
+
+\graphicspath{ {./img/} }
+
+\input{tex/titlepage.tex}
+
+\setDepartment{Elektronika II}
+\setGroup{piątek 13:00}
+\setFaculty{Elektronika II}
+\setReviewer{Rafał Frączek}
+\setSupervisor{Rafał Frączek}
+
+\title{Command line interpreter}
+\author{Kacper Filipek}
+\date{\today}
+
+\begin{document}
+
+\fontfamily{cmss}
+\selectfont
+
+\maketitle
+
+\newpage
+
+\section{Opis projektu}
+
+Program to autorska implementacja powłoki systemowej na systemy z rodziny Unix. Implementuje funkcje wywoływania programów poprzez
+komenty oraz ustawianie własnego znaku zachęty.
+
+\section{Project description}
+
+This program is an original implementation of a Unix shell. It implements functions such as executing programs by 
+a command and setting a custom command prompt.
+
+\section{Instrukcja użytkownika}
+
+\subsection*{Funkcje wbudowane}
+Program zawiera następujace funkcje wbudowane, które mozna wywołać z wiersza poleceń:
+\begin{itemize}
+    \item \texttt{cd} - zmienia aktualny katalog\\
+    Używanie: \texttt{cd path}, gdzie \texttt{path} to ścieżka do katalogu, relatywna lub absolutna
+    \item \texttt{vars} - wyświetla zmienne lokalne dla aktualnej sesji powłoki
+    \item \texttt{welcome} - wyświetla wiadomość powitalną z podstawowymi informacjami
+    \item \texttt{help} - wyświetla pomoc z omówieniem najważniejszych funkcji
+    \item \texttt{exit} - wychodzi z programu i zapisuje historię komend do pliku
+\end{itemize}
+
+\subsection*{Wywoływanie programów}
+Podstawową funckją programu jest wywoływanie programów poprzez interfejs wiersza poleceń. Aby wywołać program, należy
+wpisać nazwę jego pliku wykonywalnego oraz listę argumentów. Program zostanie wywołany, jeśli znajduje się w katalogu
+ze zmiennej PATH. Można również wywoływać programy podając ich ścieżkę absolutną lub relatywną. 
+Przykładowe użycia:
+\begin{itemize}
+    \item \texttt{ls -lah} - wywołanie ze zmiennej PATH
+    \item \texttt{/usr/sbin/usermod -a -G sudo username} - wywołanie poprzez ścieżkę absolutną
+    \item \texttt{./my\_script.sh} - wywołanie poprzez ścieżkę relatywną
+\end{itemize}
+
+Możliwe jest przekazanie argumentów ze znakami białymi przy pomocy cudzysłowów. Ciągi znaków objęte cudzysłowem zostaną
+w całości przekazane do programu jako jeden argument. Przykładowo:
+\begin{itemize}
+    \item \texttt{git commit -m "krotki opis commita"}
+    \item \texttt{cat "nazwa pliku ze spacjami.txt"}
+\end{itemize}
+
+
+\subsection*{Zmienne lokalne}
+Program zawiera podstawowe wsparcie dla zmiennych lokalnych. Zmienną przypisuje się przy pomocy znaku równości 
+w następujący sposów.\\
+\texttt{NAME=VALUE}, gdzie NAME to nazwa zmiennej, a VALUE to jej wartość. Nazwa zmiennej musi spełniać następują założenia:
+\begin{itemize}
+    \item Składać się z przynajmniej jednego znaku
+    \item Zaczynać się od litery lub znaku podkreślenia (\_).
+    \item Następne znaki mogą być literami, podkreśleniami, lub cyframi
+\end{itemize}
+Wokół znaku równości nie mogą znajdować się żadne znaki białe. Podobnie jak w wywyływaniu możemy użyć cudzysłowów, aby
+przekazać większą liczbę znaków jako wartość, np: \texttt{ZMIENNA="Litwo, ojczyzno moja!"}.
+
+\subsection*{Zmienne środowiskowe}
+Program umożliwia ustawianie zmiennych środowiskowych. Ich przypisywanie odbywa się w sposób podobny do zmiennych lokalnych,
+z tym że przypisanie poprzedzone jest słowem kluczowym "export". 
+Przykładowo: \texttt{export XDG\_CONFIG\_HOME="/home/user/.config"}
+
+\subsection*{Znak zachęty}
+W programie możliwe jest zdefiniowanie własnego znaku zachęty poprzez modyfikację zmiennej lokalnej \texttt{PROMPT}.
+Zdefiniowane są specjalne sekwencje, pozwalające wyświetlić pewne użyteczne informacje w znaku zachęty.
+
+Lista sekwencji specjalnych
+\begin{itemize}
+    \item \texttt{\%u} - nazwa użytkownika
+    \item \texttt{\%h} - nazwa hosta
+    \item \texttt{\%w} - aktualny katalog
+\end{itemize}
+
+Oprócz tego możliwe jest używanie kolorów przez poniższe sekwencje. Tekst następujący
+po sekwencji będzie miał odpowiadający jej kolor.
+\begin{itemize}
+    \item \texttt{\%\{red\}} - czerwony
+    \item \texttt{\%\{green\}} - zielony
+    \item \texttt{\%\{yellow\}} - żółty
+    \item \texttt{\%\{blue\}} - niebieski
+    \item \texttt{\%\{magenta\}} - magneta
+    \item \texttt{\%\{cyan\}} - cyjan
+    \item \texttt{\%\{white\}} - biały
+    \item \texttt{\%\{default\}} - domyślny kolor tekstu w terminalu
+\end{itemize}
+
+\subsection*{Plik konfiguracyjny}
+Program posiada plik konfiguracyjny zlokalizowany po ścieżką \texttt{.config/yosh/yoshrc}, który jest interpretowany
+linijka po linijce na starcie programu. Można w nim zdefiniować zmienne środowiskowe i lokalne lub wywoływać programy.
+
+\section{Kompilacja}
+
+Program został napisany na systemy operacyjne z rodziny Linux i nie jest możliwe skompilowanie go na system Windows,
+ponieważ wymaga on funkcji z pliku nagłówkowego \texttt{unistd.h}, takich jak \texttt{fork()} lub \texttt{waitpid()}. 
+Prawdopodobnie kompilacja programu na systemy z rodziny BSD jest możliwa, ponieważ jest on zgodny ze standardem POSIZX, 
+jednak program nie był na nich testowany.\\
+Program można skompilować w następujący sposób.
+    \begin{enumerate}
+            \item Utworzyć folder \texttt{build/} poleceniem \texttt{mkdir build}
+            \item Wejść do folderu  \texttt{build/}
+            \item Wykonać polecenie \texttt{cmake .. \&\& make}
+    \end{enumerate}
+
+Po zbudowaniu plik wykonywalny będzie pod ścieżką \texttt{build/yosh}.
+
+\section{Pliki źródłowe}
+
+Projekt składa się z następujących plików źródłowych:
+    \begin{itemize}
+    \item \texttt{parser.hpp}, \texttt{parser.cpp} – deklaracja oraz implementacja klasy Parser
+        \begin{itemize}
+            \item \texttt{Parser()} - konstruktor klasy
+            \item \texttt{Command parse(std:string command)} - funkcja parsująca polecenie w stringu na dedykowaną strukturę
+            \item \texttt{char** parse\_to\_cstrings(std::vector<std::string> args)} - funkcja konwertująca wektor stringów na
+            tablicę c-stringów
+        \end{itemize}
+    \item \texttt{prompt.hpp}, \texttt{prompt.cpp} - deklaracja oraz implementacja klasy Prompt
+        \begin{itemize}
+            \item \texttt{void display()} - wypisuje znak zachęty do wyjścia standardowego
+            \item \texttt{void set\_prompt()} - setter znaku zachęty
+        \end{itemize}
+    \item \texttt{shell.hpp}, \texttt{shell.cpp} - deklaracja oraz implementacja klasy Shell
+        \begin{itemize}
+            \item \texttt{unsigned int execute\_command(std::string command)} - wykonuje polecenie zapisane jako string
+            \item \texttt{void init()} - inicjuje stan powłoki
+            \item \texttt{void loop()} - główna pętla powłoki
+        \end{itemize}
+    \item \texttt{utils.hpp}, \texttt{utils.cpp} - deklaracje i implementacje funkcji pomocniczych
+    \item \texttt{main.cpp} – główny plik z implementacją funkcji main.
+    \end{itemize}
+
+\section{Zależności}
+Program korzysta z następujących programów do kompilacji.
+\begin{itemize}
+    \item GNU make - program do automatyzacji kompilacji programu
+    \item CMake - generator projektów do C++
+\end{itemize}
+Obie powyższe są dostępne w domyślnych repozytoriach większości dystrybucji Linuxa, jak i w systemach z rodziny BSD.
+
+\section{Opis klas}
+
+W projekcie utworzono następujące klasy:
+\begin{itemize}
+    \item \texttt{Parser} - klasa parsująca komendy
+    \item \texttt{Prompt} - klasa implementująca znak zachęty
+    \item \texttt{Shell}  - klasa implementująca główne elementy powłoki
+\end{itemize}
+     
+\section{Zasoby}
+Program używa dwóch plików do działania.
+\begin{itemize}
+    \item \texttt{.config/yosh/yoshrc} - plik zawierający komendy, które automatycznie są wykonywane przed startem 
+    programu. 
+    \item \texttt{.cache/yosh/history} - plik zawierający historię wyołanych poleceń. Jeśli plik nie istnieje, to
+    program sam go stworzy i zapisze do niego historię.
+\end{itemize}
+
+
+\section{Dalszy rozwój i ulepszenia}
+Program jest bardzo podstawową implementacją powłoki, więc istnieje duże pole do jego rozbudowy o dodatkową
+funkcjonalność. Funkcjami, do dalszej implementacji mogą być:
+\begin{itemize}
+    \item przekierowywanie wyjśćia programu
+    \item przekazywanie danych między programami (pipe)
+    \item odnoszenie się do zmiennych lokalnych
+    \item przeszukiwanie historii
+    \item podstawowe wsparcie dla pisania skryptów
+\end{itemize}
+
+\section{Inne}
+
+Z uwagi na konieczność korzystania z API napisanego w języku C do wchodzenia w interakcji z systemem operacyjnym,
+program w niektórych miejscach używa dynamicznej alokacji i wskaźników z C w celu kompatybilności z funkcjami
+z nagłówka \texttt{unistd.h}.
+
+\end{document}

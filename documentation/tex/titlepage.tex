@@ -1,0 +1,61 @@
+% Title page sourced from https://www.overleaf.com/latex/templates/agh-praca-inzynierska-magisterska/mmbvwfgrpzby
+% By Robert Gałat
+% Licenced under Creative Commons CC BY 4.0
+
+\newcommand{\setSupervisor}[1]{
+    \newcommand{\supervisor}{#1}
+}
+\newcommand{\setFaculty}[1]{
+    \newcommand{\faculty}{#1}
+}
+\newcommand{\setMajor}[1]{
+    \newcommand{\major}{#1}
+}
+
+\newcommand{\setDepartment}[1]{
+    \newcommand{\department}{#1}
+}
+
+\newcommand{\setReviewer}[1]{
+    \newcommand{\reviewer}{#1}
+}
+
+\newcommand{\setGroup}[1]{
+    \newcommand{\group}{#1}
+}
+
+\makeatletter
+\renewcommand{\maketitle}{\begin{titlepage}
+        \center{\includegraphics[height=37.5mm]{agh_nzw_s_pl_1w_wbr_rgb_150ppi}\\}
+        \rule{30mm}{0pt}
+        % {\large \textsf{\department}}\\
+        % \rule{\textwidth}{3pt}\\
+        \rule[2ex]
+        {\textwidth}{1pt}\\
+        \vspace{7ex}
+        \begin{center}
+            {\LARGE \textsf{Dokumentacja do projektu}}\\
+            \vspace{8ex}
+            %% ------------------------ TYTUL PRACY --------------------------------------
+            {\bf \huge \textsf{\@title}}\\
+            \vspace{14ex}
+            %% ------------------------ PRZEDMIOT ----------------------------------------
+            {\Large \textsf{z przedmiotu}}\\
+            \vspace{3ex}
+            {\bf \huge \textsf{Programowanie obiektowe}}\\
+            \vspace{3ex}
+            {\sf \large Kierunek:} {\large \textsf{\faculty}}\\
+            \vspace{10ex}
+            % --------------------------- IMIE I~NAZWISKO -------------------------------
+            {\it \Large \textsf{\@author}}\\
+            \vspace{3ex}
+            {\it \large \textsf{\group}}\\
+            \vspace{10ex}
+            %% ------------------------ OPIEKUN PRACY ------------------------------------
+            {\small Prowadzący: \textsf{\supervisor}}\\
+            \vspace{12ex}
+            {\small \textsf{Kraków, \@date}}
+        \end{center}
+    \end{titlepage}%
+}
+\makeatother

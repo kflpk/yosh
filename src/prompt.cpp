@@ -15,7 +15,7 @@ void Prompt::display() {
             output_str.replace(output_str.find("%u"), 2, getenv("USER"));
         if(output_str.find("%h") != std::string::npos)
             output_str.replace(output_str.find("%h"), 2, hostname);
-        if(output_str.find("%h") != std::string::npos)
+        if(output_str.find("%w") != std::string::npos)
             output_str.replace(output_str.find("%w"), 2, get_current_dir_name());
     } catch(std::exception ex) {
 

@@ -10,7 +10,6 @@
 
 class Shell {
 public:
-    void welcome();
     unsigned int execute_command(std::string command);
     int loop();
     void init();
@@ -21,6 +20,7 @@ private:
     unsigned int execute(Command& command);
 
     // BUILTINS
+    void welcome();
     void exit();
     void cd(std::string path);
     void help();
