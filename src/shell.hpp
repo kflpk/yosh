@@ -10,6 +10,7 @@
 
 class Shell {
 public:
+    // Shell();
     unsigned int execute_command(std::string command);
     int loop();
     void init();

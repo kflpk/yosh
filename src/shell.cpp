@@ -33,6 +33,7 @@ void Shell::help() {
 
 void Shell::init() {
     // Initialize shell
+    parser.pass_variables(&variables);
     std::filesystem::path config(std::string(std::getenv("XDG_CONFIG_HOME")));
     config /= "yosh/yoshrc"; // appends yosh/yoshrc to config directory
     
@@ -148,6 +149,8 @@ std::string Shell::getvar(std::string var) {
         // If not found, return empty string
         if(c_var == NULL)
             return std::string();
+        else
+            return c_var;
     }
 }
 

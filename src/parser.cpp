@@ -12,14 +12,31 @@ Parser::Parser() {
     };
 }
 
+// Parser::Parser(std::map<std::string, std::string>* vars_ref) {
+//     shell_vars = vars_ref;
+// }
+
+void Parser::pass_variables(std::map<std::string, std::string>* vars_ptr) {
+    shell_vars = vars_ptr;
+}
+
 Command Parser::parse(std::string command_line) {
     Command command;
     std::vector<std::string> tokens;
 
-    // std::regex assign_rule(R"(\w+=\w+)");
-    // std::regex export_rule(R"(export \w+=\w+)");
+
+    // Parse variable references
+    std::regex variable_rule(R"(\$([A-Za-z_][A-Za-z0-9_]*))");
+
     std::regex assign_rule(R"(^\s*([A-Za-z_][A-Za-z0-9_]*)=("[^"]*"|[a-zA-Z0-9_\.\-/]+)\s*$)");
     std::regex export_rule(R"(^\s*export\s+([A-Za-z_][A-Za-z0-9_]*)=("[^"]*"|[a-zA-Z0-9_\.\-/]+)\s*$)");
+
+    while(std::regex_search(command_line, variable_rule)) {
+        std::smatch matches;
+        std::regex_search(command_line, matches, variable_rule);
+        std::string varname = matches[1];
+        command_line.replace(command_line.find("$"), varname.size() + 1, getvar(varname));
+    }
 
     if(std::regex_match(command_line, assign_rule)) {
         std::smatch matches;
@@ -76,6 +93,21 @@ Command Parser::parse(std::string command_line) {
     }
     return command;
 } 
+std::string Parser::getvar(std::string var) {
+    // Search local shell variables for var
+    if(shell_vars->count(var))
+        return (*shell_vars)[var];
+    // If not found, search in env variables
+    else {
+        char* c_var = getenv(var.c_str());
+
+        // If not found, return empty string
+        if(c_var == NULL)
+            return std::string();
+        else
+            return c_var;
+    }
+}
 
 char** Parser::parse_to_cstrings(std::vector<std::string> args) {
     int args_count = args.size();
