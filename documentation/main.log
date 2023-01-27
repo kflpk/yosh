@@ -1,35 +1,35 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.5.4)  26 JAN 2023 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.5.26)  27 JAN 2023 10:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **/home/kacper/Programs/yosh/documentation/main.tex
 (/home/kacper/Programs/yosh/documentation/main.tex
-LaTeX2e <2020-02-02> patch level 2
-L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-05-07> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
+\bibindent=\dimen138
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
  (/usr/share/texlive/texmf-dist/tex/latex/base/ot4enc.def
-File: ot4enc.def 2020/02/11 v2.0o Standard LaTeX file
+File: ot4enc.def 2020/08/10 v2.0s Standard LaTeX file
 Now handling font encoding OT4 ...
 ... no UTF-8 mapping file for font encoding OT4
 )
@@ -41,13 +41,13 @@ Package: polski 2017/05/04 v1.3.4 Polish language package
 
    Inputenc package detected. Catcodes not changed.
 ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
  (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2019/11/07 v1.0c TeX engine tests
-) (/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
@@ -56,7 +56,7 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
+\KV@toks@=\toks17
 ) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -70,70 +70,77 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen135
-\Hy@linkcounter=\count175
-\Hy@pagecounter=\count176
+\@linkdim=\dimen139
+\Hy@linkcounter=\count187
+\Hy@pagecounter=\count188
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel languages
 ) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count177
-\pdfmajorversion=\count178
-Package hyperref Info: Option `colorlinks' set `true' on input line 4421.
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+\Hy@SavedSpaceFactor=\count189
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count179
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count190
  (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen136
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen140
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count180
-\Field@Width=\dimen137
-\Fld@charsize=\dimen138
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring ON on input line 6448.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
- (/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
-Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+\Fld@menulength=\count191
+\Field@Width=\dimen141
+\Fld@charsize=\dimen142
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring ON on input line 6093.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi package
+with kernel methods
 )
-\Hy@abspage=\count181
-\c@Item=\count182
-\c@Hfootnote=\count183
+\Hy@abspage=\count192
+\c@Item=\count193
+\c@Hfootnote=\count194
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
- (/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
-Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
+File: hpdftex.def 2021-02-27 v7.00k Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery package
+with kernel methods
 )
-\Fld@listcount=\count184
-\c@bookmark@seq@number=\count185
+\Fld@listcount=\count195
+\c@bookmark@seq@number=\count196
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -147,22 +154,22 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count186
-\Gm@cntv=\count187
-\c@Gm@tempcnt=\count188
-\Gm@bindingoffset=\dimen139
-\Gm@wd@mp=\dimen140
-\Gm@odd@mp=\dimen141
-\Gm@even@mp=\dimen142
-\Gm@layoutwidth=\dimen143
-\Gm@layoutheight=\dimen144
-\Gm@layouthoffset=\dimen145
-\Gm@layoutvoffset=\dimen146
-\Gm@dimlist=\toks17
+\Gm@cnth=\count197
+\Gm@cntv=\count198
+\c@Gm@tempcnt=\count199
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
+\Gm@dimlist=\toks18
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
@@ -170,21 +177,21 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen147
-\Gin@req@width=\dimen148
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
 ) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
-\ttl@box=\box45
+\ttl@box=\box47
 \beforetitleunit=\skip50
 \aftertitleunit=\skip51
-\ttl@plus=\dimen149
-\ttl@minus=\dimen150
-\ttl@toksa=\toks18
-\titlewidth=\dimen151
-\titlewidthlast=\dimen152
-\titlewidthfirst=\dimen153
+\ttl@plus=\dimen153
+\ttl@minus=\dimen154
+\ttl@toksa=\toks19
+\titlewidth=\dimen155
+\titlewidthlast=\dimen156
+\titlewidthfirst=\dimen157
 ) (/usr/share/texlive/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip52
@@ -193,16 +200,16 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 ) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip55
-\enit@outerparindent=\dimen154
-\enit@toks=\toks19
-\enit@inbox=\box46
-\enit@count@id=\count189
-\enitdp@description=\count190
-) (/home/kacper/Programs/yosh/documentation/tex/titlepage.tex) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count191
-\l__pdf_internal_box=\box47
-) (/home/kacper/Programs/yosh/documentation/main.aux)
+\enit@outerparindent=\dimen158
+\enit@toks=\toks20
+\enit@inbox=\box48
+\enit@count@id=\count266
+\enitdp@description=\count267
+) (./tex/titlepage.tex) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count268
+\l__pdf_internal_box=\box49
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -223,9 +230,10 @@ LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
-\AtBeginShipoutBox=\box48
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
@@ -233,18 +241,18 @@ Package color Info: Driver file: pdftex.def on input line 147.
 )
 Package hyperref Info: Link coloring ON on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count192
+\c@section@level=\count269
 )
 LaTeX Info: Redefining \ref on input line 43.
 LaTeX Info: Redefining \pageref on input line 43.
 LaTeX Info: Redefining \nameref on input line 43.
- (/home/kacper/Programs/yosh/documentation/main.out) (/home/kacper/Programs/yosh/documentation/main.out)
+ (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
@@ -285,17 +293,17 @@ LaTeX Info: Redefining \nameref on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count193
-\scratchdimen=\dimen155
-\scratchbox=\box49
-\nofMPsegments=\count194
-\nofMParguments=\count195
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count196
-\MPscratchDim=\dimen156
-\MPnumerator=\count197
-\makeMPintoPDFobject=\count198
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count270
+\scratchdimen=\dimen159
+\scratchbox=\box50
+\nofMPsegments=\count271
+\nofMParguments=\count272
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count273
+\MPscratchDim=\dimen160
+\MPnumerator=\count274
+\makeMPintoPDFobject=\count275
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -306,10 +314,10 @@ LaTeX Font Info:    Trying to load font information for OT4+cmss on input line 4
  (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmss.fd
 File: ot4cmss.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-<./img/agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg, id=44, 671.6292pt x 327.624pt>
-File: ./img/agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg Graphic file (type jpg)
-<use ./img/agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg>
-Package pdftex.def Info: ./img/agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg  used on input line 48.
+<./img//agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg, id=44, 671.6292pt x 327.624pt>
+File: ./img//agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg Graphic file (type jpg)
+<use ./img//agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg>
+Package pdftex.def Info: ./img//agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg  used on input line 48.
 (pdftex.def)             Requested size: 218.72781pt x 106.69783pt.
 LaTeX Font Info:    Font shape `OT4/cmss/m/it' in size <14.4> not available
 (Font)              Font shape `OT4/cmss/m/sl' tried instead on input line 48.
@@ -317,7 +325,7 @@ LaTeX Font Info:    Font shape `OT4/cmss/m/it' in size <12> not available
 (Font)              Font shape `OT4/cmss/m/sl' tried instead on input line 48.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg>]
+{/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img//agh_nzw_s_pl_1w_wbr_rgb_150ppi.jpg>]
 LaTeX Font Info:    Trying to load font information for OT4+cmtt on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
@@ -334,31 +342,23 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 125.
 
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
- (/home/kacper/Programs/yosh/documentation/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F3055E809992DCF7D632A1C371169774;494.
-
+[2] [3] [4] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 13D09BA29F38C54F496215D94095224E;1142.
  ) 
 Here is how much of TeX's memory you used:
- 6836 strings out of 481239
- 103519 string characters out of 5920378
- 372862 words of memory out of 5000000
- 21962 multiletter control sequences out of 15000+600000
- 541048 words of font info for 42 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 34i,5n,34p,288b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/kacper/Programs/yosh/documentation/main.pdf (5 pages, 203827 bytes).
+ 9483 strings out of 480771
+ 139753 string characters out of 5904275
+ 447195 words of memory out of 6000000
+ 26721 multiletter control sequences out of 15000+600000
+ 412140 words of font info for 45 fonts, out of 8000000 for 9000
+ 34 hyphenation exceptions out of 8191
+ 60i,5n,63p,288b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (5 pages, 203840 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
  103 compressed objects within 2 object streams
